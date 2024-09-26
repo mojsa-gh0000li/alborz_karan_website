@@ -11,7 +11,7 @@ const blogPosts = [
     id: 1,
     title: "Human computer interaction HCI",
     content:
-      "تعامل انسان و کامپیوتر",
+      " انسان و کامپیوتر",
     image: "/blog1.jpg",
   
   },
