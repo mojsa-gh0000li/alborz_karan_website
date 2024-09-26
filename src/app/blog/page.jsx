@@ -5,14 +5,13 @@ import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 
-// Sample blog post data
 const blogPosts = [
   {
     id: 1,
     title: "Human computer interaction HCI",
-    content:
+    excerpt:
       "تعامل انسان و کامپیوتر",
-    image: "/blog1.jpg",
+    image: "/hci.jpg",
   
   },
   {
@@ -33,7 +32,6 @@ const blogPosts = [
   },
 ];
 
-// Helper function to generate slug from the title
 const generateSlug = (title) => {
   return title.toLowerCase().replace(/\s+/g, "-");
 };
