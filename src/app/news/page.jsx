@@ -13,7 +13,7 @@ const News = () => {
   const [cards, setCards] = useState([]); // State to store fetched news articles
 
   const getAllNews = () => {
-    fetch("http://194.5.188.17:5000/api/news")
+    fetch("http://194.5.188.17:3000/api/news")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -91,7 +91,7 @@ const News = () => {
                   >
                     <div className="flex flex-col items-center">
                       <img
-                        src={`http://194.5.188.17:5000${card.image_path}`} // Ensure this matches your backend's image URL structure
+                        src={`http://194.5.188.17:3000${card.image_path}`} // Ensure this matches your backend's image URL structure
                         alt={card.title} // Adjusted to use card.title for better accessibility
                         className="w-full h-32 object-cover mb-2 rounded-md"
                       />

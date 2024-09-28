@@ -18,7 +18,7 @@ const Reviews = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://194.5.188.17:5000/api/sliders"); // Update with your API endpoint
+        const response = await fetch("http://194.5.188.17:3000/api/sliders"); // Update with your API endpoint
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
@@ -77,7 +77,7 @@ const Reviews = () => {
                       xl:bg-[100%] xl:bg-no-repeat overflow-hidden"
                     >
                       <img
-                        src={`http://194.5.188.17:5000/static/uploads/sliders/${project.image_path}`} // Make sure this matches your API response
+                        src={`http://194.5.188.17:3000/static/uploads/sliders/${project.image_path}`} // Make sure this matches your API response
                         width={490}
                         height={200}
                         alt={project.title}

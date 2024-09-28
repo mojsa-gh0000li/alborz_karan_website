@@ -13,7 +13,7 @@ const BlogPage = () => {
   // Fetch blog posts from the API
   const fetchBlogPosts = async () => {
     try {
-      const response = await fetch("http://194.5.188.17:5000/api/blog");
+      const response = await fetch("http://194.5.188.17:3000/api/blog");
       if (!response.ok) throw new Error("Failed to fetch blog posts");
       const data = await response.json();
       console.log(data);
@@ -67,7 +67,7 @@ const BlogPage = () => {
                 <div className="bg-white rounded-lg shadow-lg overflow-hidden">
                   {/* Blog Post Image */}
                   <img
-                    src={`http://194.5.188.17:5000${post.image_path}`} // Use image_path from the API response
+                    src={`http://194.5.188.17:3000${post.image_path}`} // Use image_path from the API response
                     alt={post.title}
                     className="w-full h-56 object-cover"
                   />

@@ -54,7 +54,7 @@ const Services = () => {
   const router = useRouter();
 
   function get() {
-    fetch("http://194.5.188.17:5000/api/cards", {
+    fetch("http://194.5.188.17:3000/api/cards", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -108,7 +108,7 @@ const Services = () => {
                 <CardHeader className="text-primary">
                   <div className="w-[70px] h-[70px] bg-primary rounded-full flex justify-center items-center absolute -bottom-5 right-6 overflow-hidden">
                     <img
-                      src={`http://194.5.188.17:5000${item.photo}`}
+                      src={`http://194.5.188.17:3000${item.photo}`}
                       alt={item.title}
                       width={70}
                       height={70}
