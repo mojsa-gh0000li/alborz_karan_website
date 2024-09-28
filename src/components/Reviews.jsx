@@ -8,56 +8,42 @@ import "swiper/css/navigation";
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
-import {
-  Card,
-  CardHeader,
-} from "@/components/ui/card";
+import { Card, CardHeader } from "@/components/ui/card";
 
 const Reviews = () => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    setData([
-      {
-        name: "اقتصاد هوشمند",
-        img: "/hci3.png",
-        desc: "Smart Economy",
-      },
-      {
-        name: "آموزش هوشمند ",
-        img: "/AR.png",
-        desc: "Smart Education",
-      },
-      {
-        name: "حکمروایی هوشمند",
-        img: "/smart-city2.jpg",
-        desc: "Smart Governance",
-      },
-      {
-        name: "تحرک هوشمند",
-        img: "/smart-city2.jpg",
-        desc: "Smart Mobility",
-      },
-      {
-        name: " زندگی هوشمند " ,
-        img: "/smart-city2.jpg",
-        desc: "Smart Living",
-      },
-      {
-        name: "محیط هوشمند",
-        img: "/smart-city2.jpg",
-        desc: "Smart Environment",
-      },
-      {
-        name: "مراقبت های بهداشتی هوشمند",
-        img: "/smart-city2.jpg",
-        desc: "Smart Healthcare",
-      },
-    ]);
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://194.5.188.17:5000/api/sliders"); // Update with your API endpoint
+        if (!response.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        const result = await response.json();
+        setData(result); // Adjust based on the structure of your API response
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
   }, []);
 
+  if (loading) {
+    return <div className="text-center">Loading...</div>; // Loading state
+  }
+
+  if (error) {
+    return <div className="text-center text-red-500">{error}</div>; // Error state
+  }
+
   return (
-    <section className="mb-12 xl:mb-32 mt-36  xl:mt-48">
+    <section className="mb-12 xl:mb-32 mt-36 xl:mt-48">
       <div className="container mx-auto">
         <Fade direction="up" delay={400} cascade damping={1e-1} triggerOnce>
           <h2 className="font-sarbaz section-title mb-12 text-center mx-auto">
@@ -83,23 +69,18 @@ const Reviews = () => {
             loop={true}
           >
             {data.map((project, index) => (
-              <SwiperSlide key={index}
-              style={{
-                marginRight:"2px",
-                marginLeft :"2px",
-              }}
-              className="mr-5">
+              <SwiperSlide key={index} className="mr-5">
                 <Card className="group overflow-hidden relative">
                   <CardHeader className="p-0 space-x-0 space-y-0">
                     <div
                       className="relative w-full h-[200px] flex items-center justify-center dark:bg-secondary/40
                       xl:bg-[100%] xl:bg-no-repeat overflow-hidden"
                     >
-                      <Image
-                        src={project.img}
+                      <img
+                        src={`http://194.5.188.17:5000/static/uploads/sliders/${project.image_path}`} // Make sure this matches your API response
                         width={490}
                         height={200}
-                        alt={project.name}
+                        alt={project.title}
                         priority
                         className="absolute top-0 shadow-2xl hover:scale-110 transition-all"
                       />
@@ -108,16 +89,16 @@ const Reviews = () => {
 
                   <div className="p-5">
                     <h4 className="h4 mb-1 font-vazir text-center">
-                      {project.name}
+                      {project.title}
                     </h4>
                     <p className="font-vazir text-muted-foreground text-lg font-vazir text-center my-3">
-                      {project.desc}
+                      {project.url}
                     </p>
                   </div>
                 </Card>
               </SwiperSlide>
             ))}
-            <div className='swiper-pagination mt-10'></div>
+            <div className="swiper-pagination mt-10"></div>
           </Swiper>
         </Fade>
       </div>

@@ -12,12 +12,10 @@ const NewsSlugPage = () => {
   // Fetch news by slug
   const fetchNewsItem = async () => {
     try {
-      const res = await fetch(`http://127.0.0.1:5000/api/news/${slug}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const res = await fetch(`http://194.5.188.17:5000/api/news/${slug}`);
+      if (!res.ok) {
+        throw new Error("Failed to fetch news data");
+      }
       const data = await res.json();
       setNewsItem(data);
       setLoading(false);
@@ -34,16 +32,24 @@ const NewsSlugPage = () => {
   }, [slug]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="flex justify-center items-center h-screen text-xl">
+        Loading...
+      </div>
+    );
   }
 
   if (!newsItem) {
-    return <div>No news found</div>;
+    return (
+      <div className="flex justify-center items-center h-screen text-xl">
+        No news found
+      </div>
+    );
   }
 
   return (
-    <section className="min-h-screen pt-12 rtl">
-      <div className="container mx-auto">
+    <section className="min-h-screen pt-12 bg-gray-50 flex flex-col items-center">
+      <div className="container mx-auto px-4 md:px-8">
         <Fade
           direction="up"
           delay={400}
@@ -51,7 +57,7 @@ const NewsSlugPage = () => {
           damping={0.1}
           triggerOnce={true}
         >
-          <h2 className="section-title mb-8 xl:mb-16 text-center mx-auto">
+          <h2 className="section-title mb-8 xl:mb-16 text-center text-3xl md:text-4xl font-bold text-gray-800">
             {newsItem.title}
           </h2>
         </Fade>
@@ -65,50 +71,27 @@ const NewsSlugPage = () => {
             triggerOnce={true}
           >
             {/* News Content */}
-            <div className="col-span-2">
+            <div className="col-span-1 lg:col-span-2 bg-white shadow-lg rounded-lg overflow-hidden transition-transform duration-300 hover:shadow-xl hover:scale-105 mx-auto">
               <img
-                src={`/uploads/news/${newsItem.image_path}`}
+                src={`http://194.5.188.17:5000${newsItem.image_path}`} // Ensure image_path from API is used
                 alt={newsItem.title}
-                className="w-full h-auto rounded-lg shadow-lg mb-8"
+                className="w-full h-64 object-cover mb-4 rounded-t-lg md:h-72 lg:h-80"
               />
-              <div className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
-                <p>{newsItem.description}</p>
-              </div>
+              <div className="p-4 md:p-6">
+                <div className="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
+                  <p>{newsItem.description}</p>
+                </div>
 
-              {/* Category & Date */}
-              <div className="flex items-center justify-between mt-6">
-                <span className="inline-block bg-blue-500 text-white py-1 px-3 rounded-lg">
-                  {newsItem.category}
-                </span>
-                <span className="text-gray-500 text-sm">
-                  {new Date(newsItem.created_at).toLocaleDateString()}
-                </span>
+                {/* Category & Date */}
+                <div className="flex items-center justify-between mt-6">
+                  <span className="inline-block bg-blue-500 text-white py-1 px-3 rounded-full text-sm font-semibold">
+                    {newsItem.category}
+                  </span>
+                  <span className="text-gray-500 text-sm">
+                    {new Date(newsItem.created_at).toLocaleDateString()}
+                  </span>
+                </div>
               </div>
-            </div>
-
-            {/* Sidebar */}
-            <div className="lg:col-span-1">
-              <h3 className="text-xl font-bold text-gray-800 mb-6">
-                Related News
-              </h3>
-              {/* This can be populated dynamically based on related news */}
-              <ul className="space-y-4">
-                <li className="bg-white p-4 rounded-lg shadow-md">
-                  <a href="#" className="text-blue-500 hover:underline">
-                    Related News Title 1
-                  </a>
-                </li>
-                <li className="bg-white p-4 rounded-lg shadow-md">
-                  <a href="#" className="text-blue-500 hover:underline">
-                    Related News Title 2
-                  </a>
-                </li>
-                <li className="bg-white p-4 rounded-lg shadow-md">
-                  <a href="#" className="text-blue-500 hover:underline">
-                    Related News Title 3
-                  </a>
-                </li>
-              </ul>
             </div>
           </Fade>
         </div>

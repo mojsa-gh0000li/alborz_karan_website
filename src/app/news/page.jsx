@@ -1,85 +1,46 @@
 "use client";
 
 import { Fade } from "react-awesome-reveal";
-import Link from "next/link"; // Import Link from Next.js
+import Link from "next/link";
 import { Tabs, TabsList, TabsContent, TabsTrigger } from "@/components/ui/tabs";
 import React, { useState, useEffect } from "react";
 
-// Sample data for projects including image URLs
-const projectData = [
-  {
-    id: 1,
-    category: "همایش", // Updated category
-    name: "Project 1",
-    imageUrl: "https://via.placeholder.com/150", // Placeholder image URL
-  },
-  {
-    id: 2,
-    category: "بروزه", // Updated category
-    name: "Project 2",
-    imageUrl: "https://via.placeholder.com/150", // Placeholder image URL
-  },
-  {
-    id: 3,
-    category: "همایش", // Updated category
-    name: "Project 3",
-    imageUrl: "https://via.placeholder.com/150", // Placeholder image URL
-  },
-];
-
-// Sample data for other pages
-const otherPages = [
-  { title: "About Us", href: "/about" },
-  { title: "Services", href: "/services" },
-  { title: "Contact", href: "/contact" },
-];
-
-// Updated categories
-const uniqueCategories = [
-  "همه", // Updated to "All"
-  "همایش", // Updated to "Conference"
-  "بروزه", // Updated to "Recent"
-];
+const uniqueCategories = [ "همایش", "پروژه","فناوری","همه"];
 
 const News = () => {
   const [categories] = useState(uniqueCategories);
-  const [category, setCategory] = useState("همه"); // Default category updated
+  const [category, setCategory] = useState("همه");
+  const [cards, setCards] = useState([]); // State to store fetched news articles
 
+  const getAllNews = () => {
+    fetch("http://194.5.188.17:5000/api/news")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((res) => {
+        console.log(res);
+        setCards(res); // Set the fetched news articles
+      })
+      .catch((error) => {
+        console.error("Failed to fetch news articles:", error);
+      });
+  };
 
-
-  const [cards1, setCards] = useState([]);
-
-  // Fetch cards from the API
-  function get() {
-      fetch("http://127.0.0.1:5000/api/cards", {
-              method: "GET",
-              headers: {
-                  "Content-Type": "application/json",
-              },
-          })
-          .then((r) => r.json())
-          .then((res) => {
-              console.log(res);
-              setCards(res); // Set the state with the API data
-          })
-          .catch((e) => console.log(e));
-  }
-
-  // Call the `get` function on component mount
   useEffect(() => {
-      get();
+    getAllNews(); // Fetch all news articles on component mount
   }, []);
 
-
-
-  // Filter projects by category
-  const filterProject = projectData.filter((project) => {
-    return category === "همه" ? true : project.category === category;
+  // Filter news articles based on selected category
+  const filteredCards = cards.filter((card) => {
+    return category === "همه" ? true : card.category === category;
   });
 
   return (
-    <section className="min-h-screen pt-12 rtl">
-      <div className="container mx-auto">
+    <section className="min-h-screen pt-12 ">
+      <div className="container mx-auto ">
         <Fade
           direction="up"
           delay={400}
@@ -122,18 +83,23 @@ const News = () => {
               damping={0.1}
               triggerOnce={true}
             >
-              {filterProject.map((project) => (
-                <TabsContent value={category} key={project.id}>
-                  {/* Link to project slug page */}
-                  <Link href={`/news/${project.name}`} className="block border p-4 rounded-md shadow hover:bg-gray-100">
+              {filteredCards.map((card) => (
+                <TabsContent value={category} key={card.id}>
+                  <Link
+                    href={`/news/${card.title}`} // Use card.slug for the link
+                    className="block border p-4 rounded-md shadow hover:bg-gray-100"
+                  >
                     <div className="flex flex-col items-center">
                       <img
-                        src={project.imageUrl}
-                        alt={project.name}
+                        src={`http://194.5.188.17:5000${card.image_path}`} // Ensure this matches your backend's image URL structure
+                        alt={card.title} // Adjusted to use card.title for better accessibility
                         className="w-full h-32 object-cover mb-2 rounded-md"
                       />
-                      <h3 className="text-xl font-semibold">{project.name}</h3>
-                      <p className="mt-2 text-gray-600">دسته‌بندی: {project.category}</p>
+                      <h3 className="text-xl font-semibold">{card.title}</h3>{" "}
+                      {/* Updated to use card.title */}
+                      <p className="mt-2 text-gray-600 ">
+                        دسته‌بندی: {card.category}
+                      </p>
                     </div>
                   </Link>
                 </TabsContent>
@@ -141,9 +107,6 @@ const News = () => {
             </Fade>
           </div>
         </Tabs>
-
-        {/* Section for Other Pages */}
-       
       </div>
     </section>
   );

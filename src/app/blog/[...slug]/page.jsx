@@ -4,48 +4,39 @@ import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import { Fade } from "react-awesome-reveal";
 
-const blogPostDetails = {
-
-  "human-computer-interaction": {
-    id: 1,
-    title: "Human-computer interaction HCI",
-    content:
-      "Photography is a never-ending learning process. Here are 5 tips to take your skills to the next level: Tip 1: Understand your camera settings. Tip 2: Practice composition rules. Tip 3: Master the light. Tip 4: Keep shooting in different scenarios. Tip 5: Always look for inspiration.",
-    image: "/blog1.jpg",
-    
-    
-  },
-  "understanding-light-in-photography": {
-    id: 2,
-    title: "Understanding Light in Photography",
-    content:
-      "Light is the essence of photography. Learn how to control light to create stunning visuals. Natural light is unpredictable but often gives the best results. Meanwhile, studio lighting allows for precision but requires technical skills.",
-    image: "/blog2.jpg",
-    date: "August 25, 2024",
-    author: "Admin",
-  },
-  "top-10-photography-gear-for-beginners": {
-    id: 3,
-    title: "Top 10 Photography Gear for Beginners",
-    content:
-      "Starting in photography? Here are the top 10 essential items every beginner needs in their kit: 1. A good camera, 2. A versatile lens, 3. Tripod, 4. Memory cards, 5. Camera bag, 6. External hard drive, 7. Camera strap, 8. Lens cleaner, 9. Remote shutter release, and 10. A light reflector.",
-    image: "/blog3.jpg",
-    date: "July 10, 2024",
-    author: "Admin",
-  },
-};
-
 const BlogPostSlug = () => {
   const params = useParams();
-  const slug = params.slug;
-  const [post, setPost] = useState(null);
+  const slug = params.slug; // Get the slug from the URL
+  const [post, setPost] = useState(null); // State to hold the blog post details
+  const [loading, setLoading] = useState(true); // State to handle loading status
 
   useEffect(() => {
+    const fetchPost = async () => {
+      try {
+        const response = await fetch(`http://194.5.188.17:5000/api/blog/${slug}`);
+        if (!response.ok) throw new Error("Post not found");
+        const data = await response.json();
+        setPost(data); // Set the fetched post to state
+      } catch (error) {
+        console.error("Error fetching post:", error);
+        setPost(null); // Set post to null in case of error
+      } finally {
+        setLoading(false); // Set loading to false after fetch
+      }
+    };
+
     if (slug) {
-      const fetchedPost = blogPostDetails[slug];
-      setPost(fetchedPost || null);
+      fetchPost(); // Call the fetch function if slug exists
     }
   }, [slug]);
+
+  if (loading) {
+    return (
+      <div className="container mx-auto text-center py-24">
+        <h1 className="text-3xl font-bold">Loading...</h1>
+      </div>
+    );
+  }
 
   if (!post) {
     return (
@@ -73,7 +64,7 @@ const BlogPostSlug = () => {
         <Fade direction="up" delay={400} cascade damping={0.1} triggerOnce>
           <div className="mb-12">
             <img
-              src={post.image}
+              src={`http://194.5.188.17:5000${post.image_path}`} // Use image_path from the API response
               alt={post.title}
               className="w-full h-auto object-cover rounded-lg shadow-lg transition-transform duration-300 hover:scale-105"
             />

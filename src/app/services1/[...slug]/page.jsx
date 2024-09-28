@@ -1,52 +1,38 @@
-import Image from 'next/image';
-
-const servicesData = [
-  {
-    image: "/icon/icon9.png", // Replace this with your actual image path
-    title: "امنیت",
-    description: "تیم البرز کاران میتواند شما را در حوزه امنیت همراهی کند",
-  },
-  {
-    image: "/icon/icon2.png", // Replace this with your actual image path
-    title: "هوش مصنوعی",
-    description:
-      "گروه فناوری البرز کاران با داشتن تیمی متخصص در حوزه هوش مصنوعی میتواند پروژه ها را پیش ببرد",
-  },
-  {
-    image: "/icon/icon3.png", // Replace this with your actual image path
-    title: "واقعیت مجازی",
-    description:
-      "تیم گروه فناوری البرز در حوزه عینک‌های واقعیت مجازی متخصص است",
-  },
-  {
-    image: "/icon/icon6.png", // Replace this with your actual image path
-    title: "علوم داده",
-    description: "تیم البرز کاران میتواند شما را در حوزه امنیت همراهی کند",
-  },
-  {
-    image: "/icon/icon8.png", // Replace this with your actual image path
-    title: " شبکه",
-    description:
-      "گروه فناوری البرز کاران با داشتن تیمی متخصص در حوزه هوش مصنوعی میتواند پروژه ها را پیش ببرد",
-  },
-  {
-    image: "/icon/icon3.png", // Replace this with your actual image path
-    title: "واقعیت مجازی",
-    description:
-      "تیم گروه فناوری البرز در حوزه عینک‌های واقعیت مجازی متخصص است",
-  },
-];
+"use client";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const ServiceDetail = ({ params }) => {
   const { slug } = params;
+  const [service, setService] = useState(null);
+  const [error, setError] = useState(null);
 
-  // Find the matching service data based on the slug
-  const service = servicesData.find((service) => service.slug === slug);
+  // Fetch service data based on slug
+  useEffect(() => {
+    fetch(`http://194.5.188.17:5000/api/cards/${slug}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.error) {
+          setError(data.error);
+        } else {
+          setService(data);
+        }
+      })
+      .catch((err) => setError(err.message));
+  }, [slug]);
+
+  if (error) {
+    return (
+      <div className="container mx-auto py-12 text-center">
+        <h2 className="text-2xl font-bold text-red-500">Service not found</h2>
+      </div>
+    );
+  }
 
   if (!service) {
     return (
       <div className="container mx-auto py-12 text-center">
-        <h2 className="text-2xl font-bold text-red-500">Service not found</h2>
+        <h2 className="text-2xl font-bold text-gray-500">Loading...</h2>
       </div>
     );
   }
@@ -62,8 +48,8 @@ const ServiceDetail = ({ params }) => {
         </p>
 
         <div className="flex justify-center items-center">
-          <Image
-            src={service.image}
+          <img
+            src={`http://194.5.188.17:5000${service.photo}`} // Use service image if available
             alt={service.title}
             width={300}
             height={300}

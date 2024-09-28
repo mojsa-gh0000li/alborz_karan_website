@@ -9,7 +9,7 @@ const Contact = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex flex-col lg:flex-row lg:justify-between items-start lg:items-center">
           {/* Left Content */}
-          <div className="flex-1 mb-12 lg:mb-0 lg:mr-8">
+          <div className="flex-1 mb-12 lg:mb-0 lg:mr-2">
             <Fade
               direction="left"
               delay={400}
@@ -17,8 +17,8 @@ const Contact = () => {
               damping={0.1}
               triggerOnce={true}
             >
-              <div className="flex items-center gap-x-4 text-primary text-lg mb-4">
-                <span className="font-sarbaz w-[30px] h-[2px] bg-primary"></span>
+              <div className="font-vazir flex items-center gap-x-4 text-primary text-lg mb-4">
+                <span className=" w-[30px] h-[2px] bg-primary"></span>
                 ارتباط با گروه فناوری البرز کاران پویا
               </div>
             </Fade>
@@ -30,7 +30,7 @@ const Contact = () => {
               damping={0.1}
               triggerOnce={true}
             >
-              <h1 className="font-sarbaz text-3xl lg:text-4xl font-bold max-w-md mb-8">
+              <h1 className="font-sarbaz text-3xl lg:text-4xl font-bold max-w-md mb-6">
                 در کنار شما هستیم
               </h1>
             </Fade>
@@ -43,8 +43,7 @@ const Contact = () => {
               triggerOnce={true}
             >
               <p className="font-vazir text-lg max-w-md">
-                برای ارتباط با ما و دریافت مشاوره در حوزه های مختلف فرم را پر
-                کنید
+                برای ارتباط با ما و دریافت مشاوره در حوزه های مختلف  IT , همکاری با ما و سوالات خود فرم را پر کرده و برای ما ارسال کنید.
               </p>
             </Fade>
 

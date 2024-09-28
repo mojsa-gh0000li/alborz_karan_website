@@ -2,35 +2,30 @@
 
 import { Fade } from "react-awesome-reveal";
 
-// Replace these with the paths to your PNG images
 const features = [
   {
     name: "تعامل انسان و کامپیوتر",
     description:
       "تعامل انسان و کامپیوتر یک زمینه بین رشته‌ای است که بر مطالعه، طراحی، اجرا و ارز یابی تعاملات بین کاربران انسانی و سیستم‌های کامپیوتری تمرکز دارد.",
-    icon: "/work/interactive.png", 
-    
+    icon: "/work/interactive.png",
   },
   {
     name: "هوش مصنوعی",
     description:
       "فناوری مبتنی بر هوش مصنوعی به طور گسترده در توسعه بیشتر اجزای یک شهر هوشمند استفاده می‌شود.",
-    icon: "/work/brain.png", 
-    
+    icon: "/work/brain.png",
   },
   {
     name: "واقعیت مجازی",
     description:
       "واقعیت مجازی (VR) به محیط تولید شده توسط کامپیوتر اشاره دارد که امکان غوطه‌وری کامل در دنیای ساخته شده مصنوعی را فراهم می‌کند.",
-    icon: "/work/augmented-reality.png", 
-    
+    icon: "/work/augmented-reality.png",
   },
   {
     name: "شهر هوشمند",
     description:
       "ایده ارائه استانداردهای زندگی بهتر با گنجاندن فناوری در فعالیت‌های روزمره مردم موجب ظهور مفهوم شهرهای هوشمند شد.",
-    icon: "/work/city.png", 
-    
+    icon: "/work/city.png",
   },
 ];
 

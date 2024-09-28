@@ -41,7 +41,6 @@ const About = () => {
         </Fade>
 
         <div className="flex flex-col xl:flex-row items-center justify-evenly mx-24">
-
           {/* Right Section: Content */}
           <div className="flex container ">
             <div className="text-lg mt-12 xl:mt-0">
@@ -62,9 +61,15 @@ const About = () => {
                   triggerOnce={true}
                 >
                   <p className="font-vazir subtitle max-w-xl mx-auto xl:mx-0">
-                    گروه فناوری البرز کاران پویا در سال 1403 تاسیس شد و در حوزه
-                    های امنیت شبکه هاب کامپیوتری و هوش مصنوعی و ... فعالیت میکند
-                    خوش حال می شویم شما را در کنار خود ببینیم
+                    گروه فناوری البرز کاران پویا با هدف حضور فعال و موثر در حوزه
+                    امنیت شبکه های کامپیوتری تحلیل داده مبتنی بر مدل های محتلف
+                    یادگیری در مراکز بزرگ داده و به کار گیری هوش مصنوعی در حوزه
+                    شهری و تلفیق فناوری نوین اطلاعات بر پایه تکنولوژی های واقعیت
+                    مجازی و افزوده در صنایع و با هم آوایی سه شرکت در حوزه
+                    کامپیوتر تشکیل یافته است این گروه برای ایفای هدف تعیین شده
+                    با بهرمندی از نیرو های متخصص و خبره و نیز اموزش نیرو های
+                    جوان سعی دارد در حوزه پروژه های کلان IT حضور تاثیر گذاری
+                    داشته باشد.
                   </p>
                 </Fade>
 
@@ -106,7 +111,6 @@ const About = () => {
             </div>
           </div>
 
-
           <div className="relative flex-1 flex justify-center xl:justify-start mb-8 xl:mb-0 mt-5">
             <Fade
               direction="left"
@@ -115,12 +119,11 @@ const About = () => {
               damping={0.1}
               triggerOnce={true}
             >
-            <iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d108435.30933939982!2d46.3614977!3d38.0603225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDQ3JzQyLjAiTiA0NsKwMjknMzMuNCJF!5e0!3m2!1sen!2sau!4v1632748357601!5m2!1sen!2sau"
-    className="w-[90%] sm:w-[450px] sm:h-[450px] lg:w-[505px] lg:h-[505px] bg-no-repeat relative rounded-lg shadow-sm"
-    allowFullScreen={true}
-></iframe>
-
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d108435.30933939982!2d46.3614977!3d38.0603225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDQ3JzQyLjAiTiA0NsKwMjknMzMuNCJF!5e0!3m2!1sen!2sau!4v1632748357601!5m2!1sen!2sau"
+                className="w-[90%] sm:w-[450px] sm:h-[450px] lg:w-[505px] lg:h-[505px] bg-no-repeat relative rounded-lg shadow-sm"
+                allowFullScreen={true}
+              ></iframe>
             </Fade>
           </div>
         </div>
