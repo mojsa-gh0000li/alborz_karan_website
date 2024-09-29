@@ -52,7 +52,7 @@ const Form = () => {
     });
 
     try {
-      const response = await fetch("http://194.5.188.17:3000/withoutOption", {
+      const response = await fetch("http://194.5.188.17:3000/user/withoutOption", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

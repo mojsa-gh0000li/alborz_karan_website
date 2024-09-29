@@ -15,9 +15,9 @@ import Badge from "./Badge";
 
 const Hero = () => {
   return (
-    <section className="py-10 xl:py-20  mx-10  h-[auto] bg-bottom">
+    <section className="py-1 xl:py-1  mx-1  h-[auto] bg-bottom">
       <div className="container mx-auto px-10">
-        <div className="flex justify-between gap-x-8 ">
+        <div className="flex justify-between gap-x-1 ">
           {/*left side*/}
           <div className="flex max-w-[800px] flex-col justify-center mx-auto xl:mx-0 text-center xl:text-right ">
             <Fade
@@ -86,10 +86,10 @@ const Hero = () => {
             triggerOnce={true}
           >
             {/*right side*/}
-            <div className="hidden xl:flex relative">
+            <div className="hidden xl:flex relative pt-24">
               <HeroImg
-                imgSrc="/hands12(1).svg"
-                containerStyles="w-[550px] h-[475px] bg-no-repeat relative bg-bottom"
+                imgSrc="/hand (1).svg"
+                containerStyles="w-[600px] h-[500px] bg-no-repeat relative bg-bottom"
               />
             </div>
           </Fade>
