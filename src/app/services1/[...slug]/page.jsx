@@ -9,7 +9,7 @@ const ServiceDetail = ({ params }) => {
 
   // Fetch service data based on slug
   useEffect(() => {
-    fetch(`http://194.5.188.17:3000/api/cards/${slug}`)
+    fetch(`http://194.5.188.17/api/cards/${slug}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.error) {
@@ -49,7 +49,7 @@ const ServiceDetail = ({ params }) => {
 
         <div className="flex justify-center items-center">
           <img
-            src={`http://194.5.188.17:3000${service.photo}`} // Use service image if available
+            src={`http://194.5.188.17${service.photo}`} // Use service image if available
             alt={service.title}
             width={300}
             height={300}

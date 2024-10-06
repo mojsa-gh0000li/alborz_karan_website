@@ -13,7 +13,7 @@ const ProjectSlugPage = () => {
   // Fetch project details by slug
   const fetchProjectDetails = async () => {
     try {
-      const response = await fetch(`http://194.5.188.17:3000/api/gallery/${slug}`); // Change to your actual API endpoint
+      const response = await fetch(`http://194.5.188.17/api/gallery/${slug}`); // Change to your actual API endpoint
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }

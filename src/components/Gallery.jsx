@@ -10,7 +10,7 @@ const Gallery = () => {
 
   // Fetch galleries from the API
   function get() {
-    fetch("http://194.5.188.17:3000/api/galleries", {
+    fetch("http://194.5.188.173000:/api/galleries", {
       // Ensure the endpoint is correct
       method: "GET",
       headers: {
