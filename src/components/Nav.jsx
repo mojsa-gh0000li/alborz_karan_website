@@ -7,8 +7,8 @@ import { motion } from "framer-motion";
 
 const links = [
   { path: "/", name: "صفحه اصلی" },
-  { path: "/news", name: "اتاق خبر" },
-  { path: "/blog", name: "وبلاگ" },
+  { path: "/news", name: "پروژه ها" },
+  { path: "/blog", name: "پایگاه دانش" },
   { path: "/contact", name: "ارتباط با ما" },
   { path: "/about", name: "درباره ما" },
 ];
