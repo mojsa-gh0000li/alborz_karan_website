@@ -88,7 +88,7 @@ const Hero = () => {
             {/*right side*/}
             <div className="hidden xl:flex relative pt-24">
               <HeroImg
-                imgSrc="/hand (1).svg"
+                imgSrc="/heromain.svg"
                 containerStyles="w-[600px] h-[500px] bg-no-repeat relative bg-bottom"
               />
             </div>
