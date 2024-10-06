@@ -64,7 +64,7 @@ const BlogPostSlug = () => {
         <Fade direction="up" delay={400} cascade damping={0.1} triggerOnce>
           <div className="mb-12">
             <img
-              src={`http://194.5.188.17${post.image_path}`} // Use image_path from the API response
+              src={`http://194.5.188.17:3001${post.image_path}`} // Use image_path from the API response
               alt={post.title}
               className="w-full h-auto object-cover rounded-lg shadow-lg transition-transform duration-300 hover:scale-105"
             />

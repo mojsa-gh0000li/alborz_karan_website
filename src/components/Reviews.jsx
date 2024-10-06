@@ -77,7 +77,7 @@ const Reviews = () => {
                       xl:bg-[100%] xl:bg-no-repeat overflow-hidden"
                     >
                       <img
-                        src={`http://194.5.188.17/static/uploads/sliders/${project.image_path}`} // Make sure this matches your API response
+                        src={`http://194.5.188.17:3001/static/uploads/sliders/${project.image_path}`} // Make sure this matches your API response
                         width={490}
                         height={200}
                         alt={project.title}

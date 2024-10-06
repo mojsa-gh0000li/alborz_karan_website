@@ -91,7 +91,7 @@ const News = () => {
                   >
                     <div className="flex flex-col items-center">
                       <img
-                        src={`http://194.5.188.17${card.image_path}`} // Ensure this matches your backend's image URL structure
+                        src={`http://194.5.188.17:3001${card.image_path}`} // Ensure this matches your backend's image URL structure
                         alt={card.title} // Adjusted to use card.title for better accessibility
                         className="w-full h-32 object-cover mb-2 rounded-md"
                       />

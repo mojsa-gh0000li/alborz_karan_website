@@ -49,7 +49,7 @@ const ServiceDetail = ({ params }) => {
 
         <div className="flex justify-center items-center">
           <img
-            src={`http://194.5.188.17${service.photo}`} // Use service image if available
+            src={`http://194.5.188.17:3001${service.photo}`} // Use service image if available
             alt={service.title}
             width={300}
             height={300}

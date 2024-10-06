@@ -73,7 +73,7 @@ const NewsSlugPage = () => {
             {/* News Content */}
             <div className="col-span-1 lg:col-span-2 bg-white shadow-lg rounded-lg overflow-hidden transition-transform duration-300 hover:shadow-xl hover:scale-105 mx-auto">
               <img
-                src={`http://194.5.188.17${newsItem.image_path}`} // Ensure image_path from API is used
+                src={`http://194.5.188.17:3001${newsItem.image_path}`} // Ensure image_path from API is used
                 alt={newsItem.title}
                 className="w-full h-64 object-cover mb-4 rounded-t-lg md:h-72 lg:h-80"
               />
