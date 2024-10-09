@@ -119,11 +119,14 @@ const About = () => {
               damping={0.1}
               triggerOnce={true}
             >
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d108435.30933939982!2d46.3614977!3d38.0603225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDQ3JzQyLjAiTiA0NsKwMjknMzMuNCJF!5e0!3m2!1sen!2sau!4v1632748357601!5m2!1sen!2sau"
+             <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3171.6312242056013!2d46.37242177640003!3d38.05970417161807!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x401a068ec8b0d315%3A0x3c926d7401c8776a!2sUniversity%20of%20Tabriz%20Center%20for%20Growth%20and%20Innovation!5e0!3m2!1sen!2sau!4v1696865358532!5m2!1sen!2sau&q=38.059704,46.372421"
                 className="w-[90%] sm:w-[450px] sm:h-[450px] lg:w-[505px] lg:h-[505px] bg-no-repeat relative rounded-lg shadow-sm"
                 allowFullScreen={true}
               ></iframe>
+
+
+
             </Fade>
           </div>
         </div>

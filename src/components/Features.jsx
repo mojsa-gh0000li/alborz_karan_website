@@ -4,28 +4,28 @@ import { Fade } from "react-awesome-reveal";
 
 const features = [
   {
-    name: "تعامل انسان و کامپیوتر",
+    name: "واقعیت ترکیبی (MR)",
     description:
-      "تعامل انسان و کامپیوتر یک زمینه بین رشته‌ای است که بر مطالعه، طراحی، اجرا و ارز یابی تعاملات بین کاربران انسانی و سیستم‌های کامپیوتری تمرکز دارد.",
-    icon: "/work/interactive.png",
+      "واقعیت ترکیبی (MR) فناوری‌ای است که دنیای واقعی و مجازی را با هم ترکیب می‌کند و امکان تعاملات پویا بین آن‌ها را فراهم می‌آورد.",
+    gif: "/gif/hologram.gif", // لینک گیف برای MR
   },
   {
-    name: "هوش مصنوعی",
+    name: "هوش مصنوعی (AI)",
     description:
-      "فناوری مبتنی بر هوش مصنوعی به طور گسترده در توسعه بیشتر اجزای یک شهر هوشمند استفاده می‌شود.",
-    icon: "/work/brain.png",
+      "هوش مصنوعی یکی از مهم‌ترین فناوری‌های روز است که قابلیت‌های یادگیری و تصمیم‌گیری ماشینی را در اختیار ما قرار می‌دهد.",
+    gif: "/gif/artificial-intelligence.gif", // لینک گیف برای AI
   },
   {
-    name: "واقعیت مجازی",
+    name: "اینترنت اشیا (IoT)",
     description:
-      "واقعیت مجازی (VR) به محیط تولید شده توسط کامپیوتر اشاره دارد که امکان غوطه‌وری کامل در دنیای ساخته شده مصنوعی را فراهم می‌کند.",
-    icon: "/work/augmented-reality.png",
+      "اینترنت اشیا (IoT) به ارتباط و تعامل دستگاه‌های مختلف در یک شبکه هوشمند اشاره دارد که قابلیت‌های خودکار و هوشمند را بهبود می‌بخشد.",
+    gif: "/gif/brain.gif", // لینک گیف برای IoT
   },
   {
-    name: "شهر هوشمند",
+    name: "ارتباطات (Connection)",
     description:
-      "ایده ارائه استانداردهای زندگی بهتر با گنجاندن فناوری در فعالیت‌های روزمره مردم موجب ظهور مفهوم شهرهای هوشمند شد.",
-    icon: "/work/city.png",
+      "ارتباطات پیشرفته، اساس رشد و توسعه فناوری است و بستری را برای انتقال سریع اطلاعات بین دستگاه‌ها و افراد فراهم می‌کند.",
+    gif: "/gif/communication.gif", // لینک گیف برای Connection
   },
 ];
 
@@ -41,7 +41,7 @@ const Features = () => {
           triggerOnce={true}
         >
           <h2 className="font-sarbaz section-title mb-2 xl:mb-3 text-center mx-auto">
-            اطلاعات
+            تکنولوژی
           </h2>
         </Fade>
 
@@ -59,17 +59,6 @@ const Features = () => {
               </p>
             </Fade>
 
-            <Fade
-              direction="up"
-              delay={800}
-              cascade
-              damping={1e-1}
-              triggerOnce={true}
-            >
-              <p className="font-vazir mt-6 text-lg leading-8 text-black dark:text-white">
-                ویژگی‌های اینه هوشمند
-              </p>
-            </Fade>
           </div>
         </div>
 
@@ -78,7 +67,7 @@ const Features = () => {
           <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16">
             <Fade
               direction="up"
-              delay={1000}
+              delay={800}
               cascade
               damping={1e-1}
               triggerOnce={true}
@@ -89,11 +78,11 @@ const Features = () => {
                   className="relative hover:scale-110 transition-all"
                 >
                   <dt className="text-base font-semibold leading-7 text-muted-foreground justify-center">
-                    <div className="flex flex-col w-[100px] h-[100px] bg-primary rounded-full items-center mb-4 justify-center">
+                    <div className="flex flex-col w-[100px] h-[100px] bg-blue-400 rounded-2xl items-center mb-4 justify-center">
                       <img
-                        src={feature.icon}
-                        alt={`${feature.name} icon`}
-                        className="h-[80px] w-[80px]"
+                        src={feature.gif}
+                        alt={`${feature.name} gif`}
+                        className="h-[83px] w-[83px] rounded-xl" // لینک گیف به جای آیکون
                       />
                     </div>
                     <div className="font-sarbaz text-black dark:text-white">

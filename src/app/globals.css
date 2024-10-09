@@ -112,3 +112,17 @@
     font-weight: 400;
     font-style: normal;
 }
+
+
+@media (max-width: 768px) {
+    .video-slider {
+      height: 80vh; /* برای موبایل ارتفاع کمتر برای ویدیو */
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .video-slider {
+      height: 100vh; /* برای دسکتاپ ارتفاع تمام صفحه */
+    }
+  }
+  

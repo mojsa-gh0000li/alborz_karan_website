@@ -48,12 +48,12 @@ const News = () => {
           damping={0.1}
           triggerOnce={true}
         >
-          <h2 className="section-title mb-8 xl:mb-16 text-center mx-auto">
-            اخبار
-          </h2>
+          <h1 className="section-title mb-8 xl:mb-16 text-center mx-auto">
+           پروژه های ما 
+          </h1>
         </Fade>
 
-        <Tabs defaultValue={category} className="mb-24 xl:mb-48">
+        {/* <Tabs defaultValue={category} className="mb-24 xl:mb-48">
           <Fade
             direction="up"
             delay={600}
@@ -73,9 +73,9 @@ const News = () => {
                 </TabsTrigger>
               ))}
             </TabsList>
-          </Fade>
+          </Fade> */}
 
-          <div className="text-lg xl:mt-8 grid grid-cols-1 lg:grid-cols-3 gap-4">
+          <div className="text-lg xl:mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-5">
             <Fade
               direction="up"
               delay={800}
@@ -84,10 +84,10 @@ const News = () => {
               triggerOnce={true}
             >
               {filteredCards.map((card) => (
-                <TabsContent value={category} key={card.id}>
+                // <TabsContent value={category} key={card.id}>
                   <Link
                     href={`/news/${card.title}`} // Use card.slug for the link
-                    className="block border p-4 rounded-md shadow hover:bg-gray-100"
+                    className="block border p-4 rounded-md shadow hover:bg-gray-200 hover:text-gray-600 "
                   >
                     <div className="flex flex-col items-center">
                       <img
@@ -97,16 +97,16 @@ const News = () => {
                       />
                       <h3 className="text-xl font-semibold">{card.title}</h3>{" "}
                       {/* Updated to use card.title */}
-                      <p className="mt-2 text-gray-600 ">
+                      {/* <p className="mt-2 text-gray-600 ">
                         دسته‌بندی: {card.category}
-                      </p>
+                      </p> */}
                     </div>
                   </Link>
-                </TabsContent>
+                // </TabsContent>
               ))}
             </Fade>
           </div>
-        </Tabs>
+        {/* </Tabs> */}
       </div>
     </section>
   );

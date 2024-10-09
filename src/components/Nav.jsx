@@ -1,7 +1,7 @@
+'use client'
+
 import Link from "next/link";
 import React from "react";
-
-//nexthooks
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 
@@ -13,7 +13,7 @@ const links = [
   { path: "/about", name: "درباره ما" },
 ];
 
-const Nav = ({ containerStyles, linkStyles, underlineStyles }) => {
+const Nav = ({ containerStyles, linkStyles, underlineStyles, onLinkClick }) => {
   const path = usePathname();
 
   return (
@@ -23,7 +23,8 @@ const Nav = ({ containerStyles, linkStyles, underlineStyles }) => {
           <Link
             href={link.path}
             key={index}
-            className={`capitalize ${linkStyles} font-vazir`} // افزودن فونت وزیر
+            className={`capitalize ${linkStyles} font-vazir`}
+            onClick={onLinkClick} // بستن منو بعد از کلیک روی لینک
           >
             {link.path === path && (
               <motion.span
@@ -43,3 +44,4 @@ const Nav = ({ containerStyles, linkStyles, underlineStyles }) => {
 };
 
 export default Nav;
+
