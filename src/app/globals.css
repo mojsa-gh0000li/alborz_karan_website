@@ -125,4 +125,26 @@
       height: 100vh; /* برای دسکتاپ ارتفاع تمام صفحه */
     }
   }
+
+  /* Add this to your global.css */
+
+/* Target only Swiper slides within the Reviews section */
+.reviews-section .swiper-slide-custom {
+    transition: transform 0.3s ease-in-out;
+    /* Scale down side slides */
+  }
+  
+  .reviews-section .swiper-slide-custom:nth-child(odd) {
+    transform: scale(0.8); /* Scale for side slides */
+  }
+  
+  .reviews-section .swiper-slide-custom-active {
+    transform: scale(1); /* Full size for the active (center) slide */
+  }
+  
+  .reviews-section .swiper-slide-shadow-left,
+  .reviews-section .swiper-slide-shadow-right {
+    display: none; /* Hide default Swiper shadows if needed */
+  }
+  
   
