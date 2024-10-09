@@ -124,9 +124,6 @@ const About = () => {
                 className="w-[90%] sm:w-[450px] sm:h-[450px] lg:w-[505px] lg:h-[505px] bg-no-repeat relative rounded-lg shadow-sm"
                 allowFullScreen={true}
               ></iframe>
-
-
-
             </Fade>
           </div>
         </div>
