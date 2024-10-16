@@ -9,14 +9,14 @@ import {
 } from "react-icons/ri"; // Imported icons
 
 const infoData = [
-  {
-    icon: <RiSendPlaneFill size={20} />,
-    text: "3715 350 0914",
-  },
-  {
-    icon: <RiVidiconFill size={20} />,
-    text: "photography@gmail.com",
-  },
+  // {
+  //   icon: <RiSendPlaneFill size={20} />,
+  //   text: "3715 350 0914",
+  // },
+  // {
+  //   icon: <RiVidiconFill size={20} />,
+  //   text: "photography@gmail.com",
+  // },
   {
     icon: <RiVipCrown2Fill size={20} />,
     text: "مرکز رشد دانشگاه تبریز",

@@ -1,59 +1,78 @@
 "use client";
-
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 const HeroImg = ({ videos, containerStyles }) => {
-  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const prevButtonRef = useRef(null); // Reference for previous button
+  const nextButtonRef = useRef(null); // Reference for next button
 
   useEffect(() => {
-    // تشخیص دستگاه موبایل یا دسکتاپ
     const checkIfMobile = () => setIsMobile(window.innerWidth <= 768);
     checkIfMobile();
     window.addEventListener("resize", checkIfMobile);
     return () => window.removeEventListener("resize", checkIfMobile);
   }, []);
 
-  const handleNext = () => {
-    setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videos.length);
-  };
-
-  const handlePrev = () => {
-    setCurrentVideoIndex((prevIndex) => (prevIndex - 1 + videos.length) % videos.length);
-  };
-
-  // تغییر ویدیو به صورت خودکار در موبایل
-  useEffect(() => {
-    if (isMobile) {
-      const interval = setInterval(handleNext, 5000); // هر ۵ ثانیه تغییر ویدیو
-      return () => clearInterval(interval); // پاک کردن تایمر هنگام تغییر سایز صفحه
-    }
-  }, [isMobile]);
-
   return (
     <div className={`${containerStyles} relative`}>
-      <video
-        className="w-full h-full object-cover"
-        src={videos[currentVideoIndex]}
-        autoPlay
-        loop
-        muted
-        playsInline
-      />
+      <Swiper
+        spaceBetween={30}
+        centeredSlides={true}
+        autoplay={{
+          delay: 6000, // 6 seconds delay
+          disableOnInteraction: false,
+        }}
+        loop={true}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={{
+          prevEl: prevButtonRef.current, // Hook up the previous button
+          nextEl: nextButtonRef.current, // Hook up the next button
+        }}
+        onSwiper={(swiper) => {
+          // To avoid 'undefined' ref issue
+          swiper.params.navigation.prevEl = prevButtonRef.current;
+          swiper.params.navigation.nextEl = nextButtonRef.current;
+          swiper.navigation.update();
+        }}
+        modules={[Autoplay, Pagination, Navigation]}
+        className="w-full h-full"
+      >
+        {videos.map((video, index) => (
+          <SwiperSlide key={index}>
+            <video
+              className="w-full h-full object-cover"
+              src={video}
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+
+      {/* Custom navigation buttons - visible only on desktop */}
       {!isMobile && (
         <>
-          <div className="absolute top-1/2 left-0 transform -translate-y-1/2">
+          <div className="absolute top-1/2 left-4 transform -translate-y-1/2 z-10">
             <button
-              onClick={handleNext} 
-              className="text-white text-4xl p-4 bg-opacity-50 bg-black rounded-full shadow-md"
+              ref={nextButtonRef} // Connect this button to Swiper's next action
+              className="text-white text-4xl p-4 pt-1 bg-opacity-50 bg-black rounded-full shadow-md"
             >
               &#8250;
             </button>
           </div>
-          <div className="absolute top-1/2 right-0 transform -translate-y-1/2">
+          <div className="absolute top-1/2 right-4 transform -translate-y-1/2 z-10">
             <button
-              onClick={handlePrev}  
-              className="text-white text-4xl p-4 bg-opacity-50 bg-black rounded-full shadow-md"
+              ref={prevButtonRef} // Connect this button to Swiper's previous action
+              className="text-white text-4xl p-4 pt-1 bg-opacity-50 bg-black rounded-full shadow-md"
             >
               &#8249;
             </button>
