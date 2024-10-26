@@ -53,7 +53,7 @@ const Gallery = () => {
               spaceBetween={20}
               slidesPerView={1} // Show 1 slide on small screens
               autoplay={{
-                delay: 5000, // 5 seconds delay
+                delay: 1000, // 5 seconds delay
                 disableOnInteraction: false,
               }}
               breakpoints={{
@@ -87,8 +87,9 @@ const Gallery = () => {
                           alt={gallery.title}
                           className="aspect-square w-full object-cover transition-transform duration-300 ease-in-out transform hover:scale-110"
                         />
-                        <div className="absolute inset-0 bg-gray-300 opacity-0 hover:opacity-80 flex justify-center items-center transition-opacity duration-300 ease-in-out">
+                        <div className="absolute inset-0 bg-gray-300 opacity-0 hover:opacity-80 flex justify-center items-center flex-col transition-opacity duration-300 ease-in-out">
                           <FaLink className="text-white text-3xl" />
+                          <div className="text-white text-md drop-shadow-lg">{gallery.title}</div>
                         </div>
                       </div>
                     </Link>

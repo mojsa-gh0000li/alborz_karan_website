@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const ServiceDetail = ({ params }) => {
@@ -38,27 +37,30 @@ const ServiceDetail = ({ params }) => {
   }
 
   return (
-    <div className="container mx-auto py-12 px-6">
-      <div className="bg-primary-light dark:bg-gray-800 rounded-lg p-8 shadow-lg">
-        <h1 className="text-5xl font-extrabold text-primary dark:text-white mb-6 font-sarbaz">
-          {service.title}
-        </h1>
-        <p className="text-xl text-secondary dark:text-gray-300 mb-8 font-vazir">
-          {service.description}
-        </p>
-
-        <div className="flex justify-center items-center">
+    <div className="container mx-auto py-12 px-4">
+      <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg max-w-3xl mx-auto">
+        <div className="flex items-center gap-6">
           <img
-            src={`http://194.5.188.17:3001${service.photo}`} // Use service image if available
+            src={`http://194.5.188.17:3001${service.photo}`}
             alt={service.title}
-            width={300}
-            height={300}
+            width={150}
+            height={150}
             className="rounded-full object-cover shadow-lg"
           />
+          <h1 className="text-4xl font-extrabold text-primary dark:text-white font-sarbaz">
+            {service.title}
+          </h1>
         </div>
+        
+        <p className="text-lg text-black dark:text-gray-300 mt-6 font-vazir">
+          {service.description}
+        </p>
       </div>
     </div>
   );
 };
 
 export default ServiceDetail;
+
+
+

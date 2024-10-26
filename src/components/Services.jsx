@@ -121,7 +121,8 @@ const Services = () => {
                     {item.title}
                   </CardTitle>
                   <CardDescription className="font-vazir text-lg">
-                    {item.description}
+                    {item.subtitle}
+
                   </CardDescription>
                 </CardContent>
               </Card>
