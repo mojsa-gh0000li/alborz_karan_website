@@ -26,7 +26,7 @@ const Gallery = () => {
       });
       const res = await response.json();
       setCards(res);
-      console.log(res)
+      console.log(res);
     } catch (e) {
       console.log(e);
     }
@@ -37,17 +37,40 @@ const Gallery = () => {
   }, []);
 
   return (
-    <section className="relative mb-12 xl:mb-36 rtl">
+    <section className="relative mt-12  mb-12 xl:mb-36 rtl">
       <div className="container mx-auto">
-        <Fade direction="up" delay={400} cascade damping={1e-1} triggerOnce={true}>
-          <h2 className="font-sarbaz section-title mb-8 xl:mb-16 text-center text-[1.25rem] font-bold text-gray-900 mx-auto tracking-[1px]">
-            شرکت هایی که با ما همکاری کردند
-          </h2>
+        <Fade
+          direction="up"
+          delay={400}
+          cascade
+          damping={1e-1}
+          triggerOnce={true}
+        >
+          <div className="flex items-center justify-center mb-12 space-x-4">
+            {/* Left Green Line */}
+            <div className="flex-grow h-0.5 bg-green-400" />
+
+            {/* Title Text */}
+            <h2 className="font-sarbaz section-title   px-4 xl:mb-16 text-center text-[1.25rem] font-bold text-gray-900 tracking-[1px] whitespace-nowrap">
+              شرکت هایی که با ما همکاری کردند
+            </h2>
+
+            {/* Right Green Line */}
+            <div className="flex-grow h-0.5 bg-green-400" />
+          </div>
         </Fade>
 
-        <Fade direction="up" delay={600} cascade damping={1e-1} triggerOnce={true}>
+        <Fade
+          direction="up"
+          delay={600}
+          cascade
+          damping={1e-1}
+          triggerOnce={true}
+        >
           {cards1.length === 0 ? ( // Check if there are any cards
-            <div className="text-center text-gray-600">Loading galleries...</div>
+            <div className="text-center text-gray-600">
+              Loading galleries...
+            </div>
           ) : (
             <Swiper
               spaceBetween={20}
@@ -83,13 +106,20 @@ const Gallery = () => {
                     <Link href={`/gallary/${gallery.slug}`} passHref>
                       <div className="block h-full">
                         <img
-                          src={`${gallery.image_path.replace(/\\/g, "/").replace("http://194.5.188.17", "http://194.5.188.17:3001")}`} // Ensure backslashes are replaced with forward slashes  
+                          src={`${gallery.image_path
+                            .replace(/\\/g, "/")
+                            .replace(
+                              "http://194.5.188.17",
+                              "http://194.5.188.17:3001"
+                            )}`} // Ensure backslashes are replaced with forward slashes
                           alt={gallery.title}
                           className="aspect-square w-full object-cover transition-transform duration-300 ease-in-out transform hover:scale-110"
                         />
                         <div className="absolute inset-0 bg-gray-300 opacity-0 hover:opacity-80 flex justify-center items-center flex-col transition-opacity duration-300 ease-in-out">
                           <FaLink className="text-white text-3xl" />
-                          <div className="text-white text-md drop-shadow-lg">{gallery.title}</div>
+                          <div className="text-white text-md drop-shadow-lg">
+                            {gallery.title}
+                          </div>
                         </div>
                       </div>
                     </Link>
@@ -98,10 +128,10 @@ const Gallery = () => {
               ))}
             </Swiper>
           )}
-          
+
           {/* Custom navigation buttons - visible only on desktop */}
           <div className="absolute top-1/2 left-4 transform -translate-y-1/2 z-10">
-           <button
+            <button
               ref={nextButtonRef} // Connect this button to Swiper's next action
               aria-label="Next Slide" // Accessibility
               className="text-white text-4xl p-4 pt-1 bg-opacity-50 bg-black rounded-full shadow-md"
@@ -110,7 +140,6 @@ const Gallery = () => {
             </button>
           </div>
           <div className="absolute top-1/2 right-4 transform -translate-y-1/2 z-10">
-             
             <button
               ref={prevButtonRef} // Connect this button to Swiper's previous action
               aria-label="Previous Slide" // Accessibility
@@ -126,5 +155,3 @@ const Gallery = () => {
 };
 
 export default Gallery;
-
-

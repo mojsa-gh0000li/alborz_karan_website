@@ -6,10 +6,14 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/effect-coverflow";
-import { Pagination, Navigation, Autoplay, EffectCoverflow } from "swiper/modules";
+import {
+  Pagination,
+  Navigation,
+  Autoplay,
+  EffectCoverflow,
+} from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Card, CardHeader } from "@/components/ui/card";
-
 
 const Reviews = () => {
   const [data, setData] = useState([]);
@@ -47,9 +51,18 @@ const Reviews = () => {
     <section className="mb-12 xl:mb-32 mt-36 xl:mt-48">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <Fade direction="up" delay={400} cascade damping={1e-1} triggerOnce>
-          <h2 className="font-sarbaz section-title mb-12 text-center mx-auto text-2xl sm:text-3xl lg:text-4xl">
-            فعالیت‌های ما
-          </h2>
+          <div className="flex items-center justify-center mb-12 space-x-4">
+            {/* Left Green Line */}
+            <div className="flex-grow h-0.5 bg-green-400" />
+
+            {/* Title Text */}
+            <h2 className="font-sarbaz section-title   px-4 xl:mb-16 text-center text-[1.25rem] font-bold text-gray-900 tracking-[1px] whitespace-nowrap">
+              فعالیت‌های ما
+            </h2>
+
+            {/* Right Green Line */}
+            <div className="flex-grow h-0.5 bg-green-400" />
+          </div>
         </Fade>
 
         <Fade direction="up" delay={600} cascade damping={1e-1} triggerOnce>
@@ -113,4 +126,3 @@ const Reviews = () => {
 };
 
 export default Reviews;
-

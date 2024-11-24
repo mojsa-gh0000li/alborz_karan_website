@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import Link from "next/link";
 import React from "react";
@@ -44,4 +44,3 @@ const Nav = ({ containerStyles, linkStyles, underlineStyles, onLinkClick }) => {
 };
 
 export default Nav;
-

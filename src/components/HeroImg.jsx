@@ -6,7 +6,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-const HeroImg = ({ videos, containerStyles }) => {
+const HeroImg = ({ images, containerStyles }) => {
   const [isMobile, setIsMobile] = useState(false);
   const prevButtonRef = useRef(null); // Reference for previous button
   const nextButtonRef = useRef(null); // Reference for next button
@@ -44,15 +44,12 @@ const HeroImg = ({ videos, containerStyles }) => {
         modules={[Autoplay, Pagination, Navigation]}
         className="w-full h-full"
       >
-        {videos.map((video, index) => (
+        {images.map((image, index) => (
           <SwiperSlide key={index}>
-            <video
-              className="w-full h-full object-cover"
-              src={video}
-              autoPlay
-              loop
-              muted
-              playsInline
+            <img
+              className="w-full h-full object-cover rounded-lg"
+              src={image}
+              alt={`Slide ${index + 1}`}
             />
           </SwiperSlide>
         ))}
@@ -63,18 +60,18 @@ const HeroImg = ({ videos, containerStyles }) => {
         <>
           <div className="absolute top-1/2 left-4 transform -translate-y-1/2 z-10">
             <button
-              ref={nextButtonRef} // Connect this button to Swiper's next action
+              ref={prevButtonRef} // Connect this button to Swiper's previous action
               className="text-white text-4xl p-4 pt-1 bg-opacity-50 bg-black rounded-full shadow-md"
             >
-              &#8250;
+              &#8249; {/* Left arrow */}
             </button>
           </div>
           <div className="absolute top-1/2 right-4 transform -translate-y-1/2 z-10">
             <button
-              ref={prevButtonRef} // Connect this button to Swiper's previous action
+              ref={nextButtonRef} // Connect this button to Swiper's next action
               className="text-white text-4xl p-4 pt-1 bg-opacity-50 bg-black rounded-full shadow-md"
             >
-              &#8249;
+              &#8250; {/* Right arrow */}
             </button>
           </div>
         </>
@@ -84,4 +81,3 @@ const HeroImg = ({ videos, containerStyles }) => {
 };
 
 export default HeroImg;
-
