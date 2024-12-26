@@ -6,8 +6,8 @@ import Socials from "./Socials";
 
 const Footer = () => {
   return (
-    <footer className="bg-primary py-12 ">
-      <div className="container mx-auto">
+    <footer className="bg-[#000080] rounded-t-full py-12 ">
+      <div className="container mx-auto ">
         <div className="flex flex-col items-center justify-between">
           <Fade
             direction="up"

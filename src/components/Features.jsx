@@ -34,14 +34,11 @@ const Features = () => {
     <section className="py-12 xl:py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900">
       <div className="container mx-auto rtl">
         {/* Title Section */}
-        <div className="text-center relative mb-16">
-          {/* Background Accent Text */}
-          <h2 className="absolute top-1/4.5 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-8xl font-extrabold text-gray-200 opacity-20 select-none">
-            Technology
-          </h2>
+        <div className="text-center relative mb-16 ">
+          
 
           {/* Main Title */}
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center ">
             {/* Left Green Line */}
             <div className="w-full h-0.5 bg-green-400" />
             <h2 className="mx-4 font-sarbaz text-5xl font-extrabold text-blue-600">
@@ -58,33 +55,45 @@ const Features = () => {
         </div>
 
         {/* Features Grid */}
-        <div className="grid grid-cols-1 gap-y-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-8">
+        <div className="grid grid-cols-1 gap-y-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-x-8 px-6 sm:px-12 lg:px-32">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="text-center transform transition-transform hover:scale-105"
+              className="relative text-center p-6 bg-blue-100 rounded-t-3xl shadow-lg transform transition-transform hover:scale-105 dark:bg-gray-800"
             >
               {/* Icon Container */}
-              <div className="w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center shadow-md sm:w-24 sm:h-24">
                 <img
                   src={feature.gif}
-                  alt={`${feature.name} gif`}
-                  className="h-20 w-20"
+                  alt={`${feature.name} icon`}
+                  className="h-16 w-16 rounded-full sm:h-20 sm:w-20 shadow-md"
                 />
               </div>
 
-              {/* Feature Title */}
-              <h3 className="font-sarbaz text-xl font-bold text-black dark:text-white">
-                {feature.name}
-              </h3>
+              {/* Content Container */}
+              <div className="mt-12 flex flex-col">
+                {/* Feature Title */}
+                <div className="flex flex-col mb-2">
+                  <h3 className="font-sarbaz text-base font-bold text-blue-700 sm:text-lg">
+                    {feature.name}
+                  </h3>
+                  <h3 className="font-sarbaz text-sm font-bold text-blue-700 sm:text-md">
+                    {feature.englishName}
+                  </h3>
+                </div>
 
-              {/* Feature Description */}
-              <p className="font-vazir mt-2 text-sm text-gray-600 dark:text-gray-400 leading-7">
-                {feature.description}
-              </p>
+                {/* Divider */}
+                <div className="my-2 h-0.5 bg-gray-300 w-11/12 mx-auto"></div>
+
+                {/* Feature Description */}
+                <p className="font-vazir text-xs text-gray-600 dark:text-gray-300 leading-6 sm:text-sm">
+                  {feature.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );
