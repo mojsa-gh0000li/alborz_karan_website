@@ -4,7 +4,7 @@ import { Fade } from "react-awesome-reveal";
 
 const NotFoundPage = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center rtl">
+    <section className="bg-[#0000800e] min-h-screen flex items-center justify-center rtl">
       <div className="container mx-auto text-center">
         <Fade
           direction="up"

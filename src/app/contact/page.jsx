@@ -5,7 +5,7 @@ import Form from "@/components/Form";
 
 const Contact = () => {  
   return (
-    <section className="min-h-screen py-12 lg:py-24">
+    <section className="min-h-screen py-12 lg:py-24 bg-[#0000800e]">
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex flex-col lg:flex-row lg:justify-between items-start lg:items-center">
           {/* Left Content */}

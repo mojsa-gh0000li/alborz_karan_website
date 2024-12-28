@@ -6,7 +6,7 @@ import Socials from "./Socials";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#000080] rounded-t-full py-12 ">
+    <footer className="bg-[ md:rounded-t-full py-12 ">
       <div className="container mx-auto ">
         <div className="flex flex-col items-center justify-between">
           <Fade
@@ -33,7 +33,7 @@ const Footer = () => {
             damping={1e-1}
             triggerOnce={true}
           >
-            <div className="text-white flex flex-col text-center">
+            <div className="text-white flex flex-col text-center font-vazir">
               حقوق محتوای تمام صفحات (متون، تصاویر، فایل‌های ویدئویی) محفوظ است
               و کپی‌برداری از آنها بدون ذکر نام گروه فناوری البرز کاران پویا
               مجاز نمی باشد.

@@ -31,7 +31,7 @@ const features = [
 
 const Features = () => {
   return (
-    <section className="py-12 xl:py-24 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-900">
+    <section className="py-12 xl:py-24 bg-transparent dark:from-gray-800 dark:to-gray-900 mt-6">
       <div className="container mx-auto rtl">
         {/* Title Section */}
         <div className="text-center relative mb-16 ">

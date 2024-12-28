@@ -8,7 +8,7 @@ const ServiceDetail = ({ params }) => {
 
   // Fetch service data based on slug
   useEffect(() => {
-    fetch(`http://194.5.188.17/api/cards/${slug}`)
+    fetch(`http://194.5.188.17:3002/api/cards/${slug}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.error) {
@@ -37,11 +37,11 @@ const ServiceDetail = ({ params }) => {
   }
 
   return (
-    <div className="container mx-auto py-12 px-4">
+    <div className="container mx-auto py-12 px-4 bg-[#0000800e]">
       <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg max-w-3xl mx-auto">
         <div className="flex items-center gap-6">
           <img
-            src={`http://194.5.188.17:3001${service.photo}`}
+            src={`http://194.5.188.17:3002${service.photo}`}
             alt={service.title}
             width={150}
             height={150}

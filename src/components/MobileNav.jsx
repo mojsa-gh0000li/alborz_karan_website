@@ -14,7 +14,7 @@ const MobileNav = () => {
   const handleLinkClick = () => {
     setIsOpen(false); // بستن منو بعد از کلیک روی یک لینک
   };
-
+ 
   return (
     <Fade
     direction="up"
@@ -22,6 +22,7 @@ const MobileNav = () => {
     cascade
     damping={1e-1}
     triggerOnce={true}
+    
   >
     
  
@@ -33,7 +34,7 @@ const MobileNav = () => {
         />
       </SheetTrigger>
       <SheetContent>
-        <div className="flex flex-col items-center justify-between h-full py-8">
+        <div className=" flex flex-col items-center justify-between h-full py-8 ">
           <div className="flex flex-col items-center gap-y-32">
             <Logo />
             <Nav

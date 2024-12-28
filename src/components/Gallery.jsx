@@ -110,7 +110,7 @@
 //                             .replace(/\\/g, "/")
 //                             .replace(
 //                               "http://194.5.188.17",
-//                               "http://194.5.188.17:3001"
+//                               "http://194.5.188.17:3002"
 //                             )}`} // Ensure backslashes are replaced with forward slashes
 //                           alt={gallery.title}
 //                           className="aspect-square w-full object-cover transition-transform duration-300 ease-in-out transform hover:scale-110"
@@ -155,6 +155,7 @@
 // };
 
 // export default Gallery;
+
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -169,7 +170,7 @@ export default function Gallery() {
 
   const getGalleries = async () => {
     try {
-      const response = await fetch("http://194.5.188.17/api/galleries", {
+      const response = await fetch("http://194.5.188.17:3002/api/galleries", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -188,7 +189,7 @@ export default function Gallery() {
   }, []);
 
   return (
-    <div className="bg-white py-10">
+    <div className="bg-transparent py-10">
       <div className="flex items-center justify-center mb-5">
         {/* Left Green Line */}
         <div className="w-3/12 h-0.5 bg-green-400" />
@@ -201,10 +202,8 @@ export default function Gallery() {
       <Swiper
         spaceBetween={10}
         slidesPerView={1}
-        autoplay={{
-          delay: 3000,
-          disableOnInteraction: false,
-        }}
+        grabCursor={true}
+        
         breakpoints={{
           440: { slidesPerView: 1 },
           640: { slidesPerView: 2 },
@@ -212,15 +211,20 @@ export default function Gallery() {
           1024: { slidesPerView: 5 },
           1280: { slidesPerView: 6 },
         }}
-        loop={true}
+       
         pagination={{ clickable: true }}
         navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
+        modules={[Autoplay, Pagination, Navigation]} 
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
+        loop={true}
       >
         {cards.map((gallery, index) => (
           <SwiperSlide key={index}>
             <div
-              className={`flex flex-col mr-8 w-44 mb-10 h-60 items-center border-2 border-[#000080] rounded-lg p-4 transition-shadow ${
+              className={`flex flex-col mx-auto w-44 mb-10 h-60 items-center border-2 border-[#000080] rounded-lg p-4 transition-shadow ${
                 index % 2 === 0 ? "bg-[#000080]" : "bg-white"
               }`}
             >
@@ -228,8 +232,8 @@ export default function Gallery() {
                 src={`${gallery.image_path
                   .replace(/\\/g, "/")
                   .replace(
-                    "http://194.5.188.17",
-                    "http://194.5.188.17:3001"
+                    "http://194.5.188.17:3002",
+                    "http://194.5.188.17:3002"
                   )}`}
                 alt={gallery.title}
                 className="w-36 h-36 object-contain mb-4 m-1 rounded-2xl bg-white"

@@ -9,7 +9,7 @@ export default function Services() {
 
   // تابع برای دریافت داده‌ها
   function get() {
-    fetch("http://194.5.188.17/api/cards", {
+    fetch("http://194.5.188.17:3002/api/cards", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -43,7 +43,7 @@ export default function Services() {
         {/* Right Green Line */}
         <div className="w-5/12 h-0.5 bg-green-400" />
       </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {cards.map((card, index) => (
           <div
             key={index}

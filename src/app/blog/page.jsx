@@ -13,7 +13,7 @@ const BlogPage = () => {
   // Fetch blog posts from the API
   const fetchBlogPosts = async () => {
     try {
-      const response = await fetch("http://194.5.188.17/api/blog");
+      const response = await fetch("http://194.5.188.17:3002/api/blog");
       if (!response.ok) throw new Error("Failed to fetch blog posts");
       const data = await response.json();
       console.log(data);
@@ -35,7 +35,7 @@ const BlogPage = () => {
   };
 
   return (
-    <section className="pb-12 xl:py-24 min-h-screen rtl">
+    <section className="pb-12 xl:py-24 min-h-screen rtl bg-[#0000800e]">
       <div className="container mx-auto px-4">
         {/* Header Section */}
         <Fade direction="up" delay={300} cascade damping={0.1} triggerOnce>
@@ -67,7 +67,7 @@ const BlogPage = () => {
                 <div className="bg-white rounded-lg shadow-lg overflow-hidden">
                   {/* Blog Post Image */}
                   <img
-                    src={`http://194.5.188.17:3001${post.image_path}`} // Use image_path from the API response
+                    src={`http://194.5.188.17:3002${post.image_path}`} // Use image_path from the API response
                     alt={post.title}
                     className="w-full h-56 object-cover"
                   />

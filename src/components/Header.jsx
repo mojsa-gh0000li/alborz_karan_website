@@ -44,7 +44,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import ThemeToggler from "./ThemeToggler";
+
 
 //import components
 import Logo from "./Logo";
@@ -71,16 +71,16 @@ const Header = () => {
         header
           ? "px-4 py-2 bg-white shadow-lg dark:bg-accent"
           : "px-4 py-4 dark:bg-transparent"
-      } sticky top-0 z-30 transition-all ${pathname === "/" && "bg-[#fff]"}`}
+      } sticky top-0 z-30 transition-all ${pathname === "/" && "bg-[#f6f6fb]"}`}
     >
-      <div className="container mx-auto px-10 py-2">
+      <div className="mx-10  py-1 pt-3">
         <div className=" flex justify-between items-center">
-          <div className="flex items-center gap-x-10">
-            <ThemeToggler />
+          <div className="flex items-center gap-x-2">
+            
 
             <Nav
-              containerStyles="hidden xl:flex gap-x-8 items-center"
-              linkStyles="relative hover:text-primary transition-all"
+              containerStyles="hidden xl:flex gap-x-10 items-center"
+              linkStyles="relative hover:text-white hover:bg-[#000080] hover:rounded-lg hover:p-2 transition-all"
               underlineStyles="absolute left-0 top-full h-[2px] bg-primary w-full "
             />
 

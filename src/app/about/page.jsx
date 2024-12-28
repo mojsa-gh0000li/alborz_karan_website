@@ -25,7 +25,7 @@ const infoData = [
 
 const About = () => {
   return (
-    <section className="pb-12 xl:py-24 min-h-screen ">
+    <section className="pb-12 xl:py-24 min-h-screen bg-[#0000800e]">
       <div className="container mx-auto">
         {/* Title */}
         <Fade

@@ -43,7 +43,7 @@ const ProjectSlugPage = () => {
   }
 
   return (
-    <section className="min-h-screen pt-12 rtl">
+    <section className="min-h-screen pt-12 rtl bg-[#0000800e]">
       <div className="container mx-auto">
         <Fade
           direction="up"

@@ -19,7 +19,7 @@ const HeroImg = ({ images, containerStyles }) => {
   }, []);
 
   return (
-    <div className={`${containerStyles} relative`}>
+    <div className={`${containerStyles} relative  bg-transparent`}>
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -37,8 +37,9 @@ const HeroImg = ({ images, containerStyles }) => {
         }}
         onSwiper={(swiper) => {
           // To avoid 'undefined' ref issue
-          swiper.params.navigation.prevEl = prevButtonRef.current;
           swiper.params.navigation.nextEl = nextButtonRef.current;
+          swiper.params.navigation.prevEl = prevButtonRef.current;
+          
           swiper.navigation.update();
         }}
         modules={[Autoplay, Pagination, Navigation]}
@@ -47,7 +48,7 @@ const HeroImg = ({ images, containerStyles }) => {
         {images.map((image, index) => (
           <SwiperSlide key={index}>
             <img
-              className="w-full h-full object-cover rounded-lg"
+              className="w-full h-full object-cover "
               src={image}
               alt={`Slide ${index + 1}`}
             />
@@ -60,18 +61,20 @@ const HeroImg = ({ images, containerStyles }) => {
         <>
           <div className="absolute top-1/2 left-4 transform -translate-y-1/2 z-10">
             <button
-              ref={prevButtonRef} // Connect this button to Swiper's previous action
-              className="text-white text-4xl p-4 pt-1 bg-opacity-50 bg-black rounded-full shadow-md"
-            >
-              &#8249; {/* Left arrow */}
-            </button>
-          </div>
-          <div className="absolute top-1/2 right-4 transform -translate-y-1/2 z-10">
-            <button
               ref={nextButtonRef} // Connect this button to Swiper's next action
               className="text-white text-4xl p-4 pt-1 bg-opacity-50 bg-black rounded-full shadow-md"
             >
               &#8250; {/* Right arrow */}
+            </button>
+          </div>
+
+          <div className="absolute top-1/2 right-4 transform -translate-y-1/2 z-10">
+            
+            <button
+              ref={prevButtonRef} // Connect this button to Swiper's previous action
+              className="text-white text-4xl p-4 pt-1 bg-opacity-50 bg-black rounded-full shadow-md"
+            >
+              &#8249; {/* Left arrow */}
             </button>
           </div>
         </>

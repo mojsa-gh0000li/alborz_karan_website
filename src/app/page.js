@@ -4,14 +4,14 @@ import Services from "@/components/Services";
 import Gallery from "@/components/Gallery";
 import Reviews from "@/components/Reviews";
 import Faq from "@/components/Faq";
-import Newsletter from "@/components/Newsletter";
+
 
 
 
 export default function Home() {
   return (
     <>
-      <main className="ml-4 mr-6">
+      <main className="m-0 bg-[#0000800e]">
         <Hero />   
         <Features /> 
         <Services />  
