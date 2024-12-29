@@ -94,7 +94,7 @@ const Form = () => {
         damping={1e-1}
         triggerOnce={true}
       >
-        <div className="relative flex items-center">
+        <div className="relative flex items-center font-vazir">
           <input
             value={name}
             onChange={(e) => {
@@ -116,7 +116,7 @@ const Form = () => {
         damping={1e-1}
         triggerOnce={true}
       >
-        <div className="relative flex items-center">
+        <div className="relative flex items-center font-vazir">
           <input
             value={phone}
             onChange={(e) => {
@@ -138,7 +138,7 @@ const Form = () => {
         damping={1e-1}
         triggerOnce={true}
       >
-        <div className="relative flex items-center">
+        <div className="relative flex items-center font-vazir">
           <input
             value={email}
             onChange={(e) => {
@@ -146,7 +146,7 @@ const Form = () => {
             }}
             type="email"
             id="email"
-            placeholder="پست الکترونیکی"
+            placeholder="پست الکترونیکی"  
             className="border border-gray-300 rounded-md p-2 pl-10 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
           />
           <AtSign className="absolute left-3 text-gray-500" size={20} />
@@ -160,7 +160,7 @@ const Form = () => {
         damping={1e-1}
         triggerOnce={true}
       >
-        <div className="relative flex items-center">
+        <div className="relative flex items-center font-vazir">
           <MessageSquare
             className="absolute top-3 left-3 text-gray-500"
             size={20}
@@ -185,7 +185,7 @@ const Form = () => {
       >
         <Button
           onClick={log}
-          className="flex items-center gap-x-1 bg-blue-500 text-white px-4 py-2 rounded-md transition hover:bg-blue-600 focus:outline-none"
+          className="flex font-vazir items-center gap-x-1 bg-blue-500 text-white px-4 py-2 rounded-md transition hover:bg-blue-600 focus:outline-none"
         >
           <ArrowRightIcon size={20} /> ارسال
         </Button>

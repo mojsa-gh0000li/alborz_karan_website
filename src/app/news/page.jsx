@@ -48,7 +48,7 @@ const News = () => {
           damping={0.1}
           triggerOnce={true}
         >
-          <h1 className="section-title mb-8 xl:mb-16 text-center mx-auto">
+          <h1 className="section-title mb-8 xl:mb-16 text-center mx-auto font-sarbaz">
            پروژه های ما 
           </h1>
         </Fade>
@@ -95,7 +95,7 @@ const News = () => {
                         alt={card.title} // Adjusted to use card.title for better accessibility
                         className="w-full h-32 object-cover mb-2 rounded-md"
                       />
-                      <h3 className="text-xl font-semibold">{card.title}</h3>{" "}
+                      <h3 className="text-xl font-semibold font-vazir">{card.title}</h3>{" "}
                       {/* Updated to use card.title */}
                       {/* <p className="mt-2 text-gray-600 ">
                         دسته‌بندی: {card.category}

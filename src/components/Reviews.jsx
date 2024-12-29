@@ -54,12 +54,12 @@ const Reviews = () => {
         <Fade direction="up" delay={400} cascade damping={1e-1} triggerOnce>
             <div className="flex items-center justify-center mb-5">
             {/* Left Green Line */}
-            <div className="w-1/3 h-0.5 bg-green-400" />
-            <div className="mx-8 font-sarbaz text-5xl font-extrabold -translate-x-2 text-blue-500">
+            <div className="w-1/6 md:w-1/3 h-0.5 bg-green-400" />
+            <div className="mx-8 font-sarbaz  text-2xl md:text-5xl font-extrabold -translate-x-2 text-blue-500">
                  فعالیت های ما
             </div>
             {/* Right Green Line */}
-            <div className="w-1/3 h-0.5 bg-green-400" />
+            <div className="w-1/6 md:w-1/3 h-0.5 bg-green-400" />
           </div>
         </Fade>
 

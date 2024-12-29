@@ -30,7 +30,7 @@ const Contact = () => {
               damping={0.1}
               triggerOnce={true}
             >
-              <h1 className="font-sarbaz text-3xl lg:text-4xl font-bold max-w-md mb-6">
+              <h1 className="font-sarbaz text-3xl lg:text-4xl  font-bold max-w-md mb-6">
                 در کنار شما هستیم
               </h1>
             </Fade>

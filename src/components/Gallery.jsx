@@ -192,12 +192,12 @@ export default function Gallery() {
     <div className="bg-transparent py-10">
       <div className="flex items-center justify-center mb-5">
         {/* Left Green Line */}
-        <div className="w-3/12 h-0.5 bg-green-400" />
-        <div className="mx-8 font-sarbaz text-5xl font-extrabold -translate-x-2 text-blue-500">
+        <div className="w-1/12 md:w-3/12 h-0.5 bg-green-400" />
+        <div className="mx-8 font-sarbaz text-xl md:text-5xl font-extrabold text-center -translate-x-2 text-blue-500">
           ﺷﺮکت ﻫﺎیی که  ﺑﺎ ﻣﺎ ﻫﻤکاری کردﻧﺪ
         </div>
         {/* Right Green Line */}
-        <div className="w-3/12 h-0.5 bg-green-400" />
+        <div className="w-1/12 md:w-3/12 h-0.5 bg-green-400" />
       </div>
       <Swiper
         spaceBetween={10}
@@ -240,7 +240,7 @@ export default function Gallery() {
               />
               <div className="border-b-2 border-lime-400 w-full h-4"></div>
               <h3
-                className={`text-center pt-3  font-medium text-xl  ${
+                className={`text-center pt-3 font-vazir font-medium text-xl  ${
                   index % 2 === 0 ? "text-lime-400" : "text-[#000080]"
                 }`}
               >

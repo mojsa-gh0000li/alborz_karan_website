@@ -8,12 +8,12 @@ export default function Faq() {
         {/* عنوان */}
         <div className="flex items-center justify-center mb-5 ">
         {/* Left Green Line */}
-        <div className="w-4/12 h-0.5 bg-green-400" />
-        <div className="mx-8 font-sarbaz text-5xl font-extrabold -translate-x-2 text-blue-500">
+        <div className="w-1/6 md:w-4/12 h-0.5 bg-green-400" />
+        <div className="mx-8 font-sarbaz  text-2xl md:text-5xl font-extrabold -translate-x-2 text-blue-500">
         سوالات متداول
         </div>
         {/* Right Green Line */}
-        <div className="w-4/12 h-0.5 bg-green-400" />
+        <div className="w-1/6 md:w-4/12 h-0.5 bg-green-400" />
       </div>
       <div className="container mx-auto px-4 flex flex-col items-center">
         {/* سوالات */}
