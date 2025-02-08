@@ -47,14 +47,25 @@ export default function Services() {
         {cards.map((card, index) => (
           <div
             key={index}
-            className="relative border-2 border-white rounded-ss-3xl pb-5 pe-4 ps-3 cursor-pointer transition"
-            onClick={() => handleCardClick(card.slug)} // انتقال به مسیر
+            className="relative border-2 border-white rounded-ss-3xl pb-4 pe-4 ps-3 cursor-pointer transition"
           >
             {/* متن با زمینه متفاوت */}
             <div className="absolute -top-5 right-1/5 bg-blue-900 px-1">
               <h3 className="text-2xl font-vazir font-bold text-lime-400">{card.title}</h3>
             </div>
-            <p className="mt-8 font-vazir">{card.description}</p>
+            <p className="mt-8 font-vazir">
+              {card.description}
+              <a 
+                onClick={() => handleCardClick(card.slug)} 
+                className="font-vazir inline-block mt-2 mr-1 text-lime-400 font-bold transition-all duration-300 hover:text-lime-500 hover:underline hover:scale-105"
+              >
+                بیشتر بدانید...
+              </a>
+            </p>
+
+            
+            
+            
           </div>
         ))}
       </div>

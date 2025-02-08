@@ -40,8 +40,8 @@ const BlogPage = () => {
         {/* Header Section */}
         <Fade direction="up" delay={300} cascade damping={0.1} triggerOnce>
           <div className="text-center mb-16">
-            <h1 className="text-4xl xl:text-5xl font-bold font-sarbaz mb-4">
-              وبلاگ ما
+            <h1 className="text-4xl xl:text-5xl font-bold font-sarbaz mb-4 text-blue-600">
+              پایگاه دانش ما
             </h1>
             <p className="font-vazir text-xl xl:text-2xl text-gray-600">
               آخرین اخبار، مقالات و نکات تخصصی در زمینه IT امنیت شبکه مطالعه

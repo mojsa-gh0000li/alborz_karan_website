@@ -23,7 +23,7 @@ const ServiceDetail = ({ params }) => {
   if (error) {
     return (
       <div className="container mx-auto py-12 text-center">
-        <h2 className="text-2xl font-bold text-red-500">Service not found</h2>
+        <h2 className="text-3xl font-bold text-red-500">سرویس یافت نشد</h2>
       </div>
     );
   }
@@ -31,36 +31,43 @@ const ServiceDetail = ({ params }) => {
   if (!service) {
     return (
       <div className="container mx-auto py-12 text-center">
-        <h2 className="text-2xl font-bold text-gray-500">Loading...</h2>
+        <h2 className="text-3xl font-bold text-gray-500 animate-pulse">در حال بارگذاری...</h2>
       </div>
     );
   }
 
   return (
-    <div className="container mx-auto py-12 px-4 bg-[#0000800e]">
-      <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-lg max-w-3xl mx-auto">
-        <div className="flex items-center gap-6">
+    <div className="container mx-auto py-12 px-6 bg-[#0000800e]">
+      <div className="bg-gradient-to-b from-blue-900 to-blue-700 text-white rounded-xl p-8 shadow-xl max-w-4xl mx-auto">
+        {/* Title Section */}
+        <div className="flex flex-col md:flex-row items-center gap-6">
           <img
             src={`http://194.5.188.17:3002${service.photo}`}
             alt={service.title}
-            width={150}
-            height={150}
-            className="rounded-full object-cover shadow-lg"
+            width={180}
+            height={180}
+            className="rounded-full object-cover shadow-lg border-4 border-lime-400"
           />
-          <h1 className="text-4xl font-extrabold text-primary dark:text-white font-sarbaz">
-            {service.title}
-          </h1>
+          <h1 className="text-4xl font-extrabold font-sarbaz">{service.title}</h1>
         </div>
-        
-        <p className="text-lg text-black dark:text-gray-300 mt-6 font-vazir">
+
+        {/* Description */}
+        <p className="text-lg mt-6 leading-relaxed font-vazir">
           {service.description}
         </p>
+
+        {/* Back Button */}
+        <div className="mt-8 text-center">
+          <a 
+            href="/" 
+            className="font-sarbaz bg-lime-400 text-black  py-3 px-6 rounded-full shadow-lg transition-all duration-300 hover:bg-lime-500 hover:scale-105"
+          >
+            بازگشت به صفحه اصلی
+          </a>
+        </div>
       </div>
     </div>
   );
 };
 
 export default ServiceDetail;
-
-
-
