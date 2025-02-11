@@ -9,7 +9,7 @@ export default function Services() {
 
   // تابع برای دریافت داده‌ها
   function get() {
-    fetch("http://194.5.188.17:3002/api/cards", {
+    fetch("https://api.alborzkaran.com/api/cards", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

@@ -110,7 +110,7 @@
 //                             .replace(/\\/g, "/")
 //                             .replace(
 //                               "http://194.5.188.17",
-//                               "http://194.5.188.17:3002"
+//                               ""
 //                             )}`} // Ensure backslashes are replaced with forward slashes
 //                           alt={gallery.title}
 //                           className="aspect-square w-full object-cover transition-transform duration-300 ease-in-out transform hover:scale-110"
@@ -170,7 +170,7 @@ export default function Gallery() {
 
   const getGalleries = async () => {
     try {
-      const response = await fetch("http://194.5.188.17:3002/api/galleries", {
+      const response = await fetch("/api/galleries", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -232,8 +232,8 @@ export default function Gallery() {
                 src={`${gallery.image_path
                   .replace(/\\/g, "/")
                   .replace(
-                    "http://194.5.188.17:3002",
-                    "http://194.5.188.17:3002"
+                    "",
+                    ""
                   )}`}
                 alt={gallery.title}
                 className="w-36 h-36 object-contain mb-4 m-1 rounded-2xl bg-white"

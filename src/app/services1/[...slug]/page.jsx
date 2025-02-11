@@ -8,7 +8,7 @@ const ServiceDetail = ({ params }) => {
 
   // Fetch service data based on slug
   useEffect(() => {
-    fetch(`http://194.5.188.17:3002/api/cards/${slug}`)
+    fetch(`https://api.alborzkaran.com/api/cards/${slug}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.error) {
@@ -42,7 +42,7 @@ const ServiceDetail = ({ params }) => {
         {/* Title Section */}
         <div className="flex flex-col md:flex-row items-center gap-6">
           <img
-            src={`http://194.5.188.17:3002${service.photo}`}
+            src={`https://api.alborzkaran.com${service.photo}`}
             alt={service.title}
             width={180}
             height={180}
@@ -60,7 +60,7 @@ const ServiceDetail = ({ params }) => {
         <div className="mt-8 text-center">
           <a 
             href="/" 
-            className="font-sarbaz bg-lime-400 text-black  py-3 px-6 rounded-full shadow-lg transition-all duration-300 hover:bg-lime-500 hover:scale-105"
+            className="font-sarbaz bg-lime-400 text-black z py-3 px-6 rounded-full shadow-lg transition-all duration-300 hover:bg-lime-500 hover:scale-105"
           >
             بازگشت به صفحه اصلی
           </a>

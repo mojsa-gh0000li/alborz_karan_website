@@ -23,7 +23,7 @@ const Reviews = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("http://194.5.188.17:3002/api/sliders"); // Update with your API endpoint
+        const response = await fetch("https://api.alborzkaran.com/api/sliders"); // Update with your API endpoint
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
@@ -90,7 +90,7 @@ const Reviews = () => {
               <SwiperSlide key={index} >
                 <div className="flex flex-col my-16 mx-auto w-60  h-80 bg-[#000080] items-center border-2 border-[#000080] rounded-lg p-4 transition-shadow">
                     <img
-                        src={`http://194.5.188.17:3002/static/uploads/sliders/${project.image_path}`} // Ensure this matches your API response
+                        src={`https://api.alborzkaran.com/static/uploads/sliders/${project.image_path}`} // Ensure this matches your API response
                         alt={project.title}
                         className="w-52 h-40 object-contain rounded-2xl bg-white"
                       />
