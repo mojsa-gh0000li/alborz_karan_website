@@ -170,12 +170,15 @@ export default function Gallery() {
 
   const getGalleries = async () => {
     try {
-      const response = await fetch("/api/galleries", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        "https://api.alborzkaran.com/api/galleries",
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       const res = await response.json();
       setCards(res);
       console.log(res);
@@ -194,7 +197,7 @@ export default function Gallery() {
         {/* Left Green Line */}
         <div className="w-1/12 md:w-3/12 h-0.5 bg-green-400" />
         <div className="mx-8 font-sarbaz text-xl md:text-5xl font-extrabold text-center -translate-x-2 text-blue-500">
-          ﺷﺮکت ﻫﺎیی که  ﺑﺎ ﻣﺎ ﻫﻤکاری کردﻧﺪ
+          ﺷﺮکت ﻫﺎیی که ﺑﺎ ﻣﺎ ﻫﻤکاری کردﻧﺪ
         </div>
         {/* Right Green Line */}
         <div className="w-1/12 md:w-3/12 h-0.5 bg-green-400" />
@@ -203,7 +206,6 @@ export default function Gallery() {
         spaceBetween={10}
         slidesPerView={1}
         grabCursor={true}
-        
         breakpoints={{
           440: { slidesPerView: 1 },
           640: { slidesPerView: 2 },
@@ -211,10 +213,9 @@ export default function Gallery() {
           1024: { slidesPerView: 5 },
           1280: { slidesPerView: 6 },
         }}
-       
         pagination={{ clickable: true }}
         navigation={true}
-        modules={[Autoplay, Pagination, Navigation]} 
+        modules={[Autoplay, Pagination, Navigation]}
         autoplay={{
           delay: 3000,
           disableOnInteraction: false,
@@ -231,10 +232,7 @@ export default function Gallery() {
               <img
                 src={`${gallery.image_path
                   .replace(/\\/g, "/")
-                  .replace(
-                    "",
-                    ""
-                  )}`}
+                  .replace("", "")}`}
                 alt={gallery.title}
                 className="w-36 h-36 object-contain mb-4 m-1 rounded-2xl bg-white"
               />
